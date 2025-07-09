@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meteo Piacenza - 15 Giorni</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to top, #e0f7fa, #ffffff);
+      color: #333;
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+    }
+    .forecast {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .day {
+      background-color: #ffffff;
+      border-radius: 12px;
+      padding: 10px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .day h3 {
+      margin: 0 0 10px 0;
+    }
+    .icon {
+      font-size: 30px;
+    }
+    @media (max-width: 600px) {
+      .forecast {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Previsioni Meteo a Piacenza - 15 Giorni</h1>
+  <div class="forecast" id="forecast"></div>
+
+  <script>
+    const forecastData = [
+      { day: "9 Luglio", condition: "Soleggiato", temp: "27°C", icon: "☀️" },
+      { day: "10 Luglio", condition: "Soleggiato", temp: "29°C", icon: "☀️" },
+      { day: "11 Luglio", condition: "Soleggiato", temp: "29°C", icon: "☀️" },
+      { day: "12 Luglio", condition: "Temporale possibile", temp: "29°C", icon: "⛈️" },
+      { day: "13 Luglio", condition: "Temporale", temp: "28°C", icon: "🌦️" },
+      { day: "14 Luglio", condition: "Sole velato", temp: "30°C", icon: "🌤️" },
+      { day: "15 Luglio", condition: "Parzialmente nuvoloso", temp: "31°C", icon: "⛅" },
+      { day: "16 Luglio", condition: "Soleggiato", temp: "32°C", icon: "☀️" },
+      { day: "17 Luglio", condition: "Caldo intenso", temp: "34°C", icon: "🔥" },
+      { day: "18 Luglio", condition: "Soleggiato", temp: "35°C", icon: "☀️" },
+      { day: "19 Luglio", condition: "Soleggiato", temp: "35°C", icon: "☀️" },
+      { day: "20 Luglio", condition: "Temporale possibile", temp: "33°C", icon: "🌩️" },
+      { day: "21 Luglio", condition: "Nuvoloso", temp: "30°C", icon: "☁️" },
+      { day: "22 Luglio", condition: "Parzialmente nuvoloso", temp: "31°C", icon: "⛅" },
+      { day: "23 Luglio", condition: "Soleggiato", temp: "32°C", icon: "☀️" },
+    ];
+
+    const forecastContainer = document.getElementById("forecast");
+
+    forecastData.forEach(day => {
+      const dayEl = document.createElement("div");
+      dayEl.className = "day";
+      dayEl.innerHTML = `
+        <h3>${day.day}</h3>
+        <div class="icon">${day.icon}</div>
+        <p>${day.condition}</p>
+        <p><strong>${day.temp}</strong></p>
+      `;
+      forecastContainer.appendChild(dayEl);
+    });
+  </script>
+</body>
+</html>
